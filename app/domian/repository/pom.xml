@@ -9,13 +9,18 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>aurora-core-service</artifactId>
+    <artifactId>aurora-domain-repository</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>me.lixinwen.aurora</groupId>
-            <artifactId>aurora-domain-repository</artifactId>
+            <artifactId>aurora-domain-entity</artifactId>
         </dependency>
     </dependencies>
 </project>

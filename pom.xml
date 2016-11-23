@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -9,44 +9,39 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>app/common/domain</module>
+        <module>app/domian/entity</module>
         <module>app/test</module>
-        <module>app/common/repository</module>
+        <module>app/domian/repository</module>
         <module>app/core/service</module>
+        <module>app/common/util</module>
+        <module>app/web/home</module>
+        <module>assembly</module>
     </modules>
 
     <properties>
-        <spring.version>4.3.4.RELEASE</spring.version>
-        <spring-data-jpa.version>1.10.4.RELEASE</spring-data-jpa.version>
-        <hibernate.version>5.2.4.Final</hibernate.version>
-        <mysql.connector.version>5.1.38</mysql.connector.version>
+        <spring-boot.version>1.4.1.RELEASE</spring-boot.version>
+        <mysql-connector.version>5.1.38</mysql-connector.version>
         <log4j.version>2.7</log4j.version>
         <junit.version>4.12</junit.version>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
         <java.version>1.8</java.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <type>pom</type>
                 <scope>import</scope>
-                <version>${spring.version}</version>
+                <version>${spring-boot.version}</version>
             </dependency>
+
             <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
-                <version>${spring-data-jpa.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-entitymanager</artifactId>
-                <version>${hibernate.version}</version>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
             </dependency>
 
             <dependency>
@@ -57,7 +52,37 @@
 
             <dependency>
                 <groupId>me.lixinwen.aurora</groupId>
-                <artifactId>aurora-common-domain</artifactId>
+                <artifactId>aurora-common-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-domain-entity</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-domain-repository</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-core-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-web-home</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-assembly</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
@@ -74,6 +99,11 @@
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

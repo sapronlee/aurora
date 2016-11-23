@@ -8,3 +8,5 @@
 out
 gen
 target
+*.jar
+.DS_Store
