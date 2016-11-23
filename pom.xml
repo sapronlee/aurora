@@ -6,19 +6,62 @@
 
     <groupId>me.lixinwen.aurora</groupId>
     <artifactId>aurora-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>app/common/domain</module>
+        <module>app/test</module>
+        <module>app/common/repository</module>
+        <module>app/core/service</module>
+    </modules>
 
     <properties>
         <spring.version>4.3.4.RELEASE</spring.version>
-        <mybatis.version>3.4.1</mybatis.version>
+        <spring-data-jpa.version>1.10.4.RELEASE</spring-data-jpa.version>
+        <hibernate.version>5.2.4.Final</hibernate.version>
         <mysql.connector.version>5.1.38</mysql.connector.version>
         <log4j.version>2.7</log4j.version>
+        <junit.version>4.12</junit.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <java.version>1.8</java.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring-data-jpa.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.lixinwen.aurora</groupId>
+                <artifactId>aurora-common-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
