@@ -12,3 +12,42 @@ spring:
 security:
   basic:
     enabled: false
+
+#prod
+---
+spring:
+  profiles:
+    active: prod
+  datasource:
+    username: root
+    password: minis-production
+server:
+  port: 7000
+
+#test
+---
+spring:
+  profiles:
+    active: test
+  datasource:
+      username: root
+      password:
+  thymeleaf:
+      cache: false
+server:
+  port: 8080
+
+#dev
+---
+spring:
+  profiles:
+    active: dev
+  datasource:
+      username: root
+      password:
+  thymeleaf:
+    cache: false
+server:
+  port: 8080
+assets:
+  path: //127.0.0.1:8900

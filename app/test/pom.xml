@@ -14,14 +14,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>me.lixinwen.aurora</groupId>
-            <artifactId>aurora-web-home</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>aurora-assembly</artifactId>
         </dependency>
     </dependencies>
 </project>
