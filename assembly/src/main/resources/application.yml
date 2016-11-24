@@ -7,8 +7,7 @@ spring:
     username: root
     password:
   jpa:
-    hibernate:
-      ddl-auto: create
+    show-sql: true
 security:
   basic:
     enabled: false
@@ -21,6 +20,9 @@ spring:
   datasource:
     username: root
     password: minis-production
+  output:
+    ansi:
+      enabled: never
 server:
   port: 7000
 
@@ -34,6 +36,12 @@ spring:
       password:
   thymeleaf:
       cache: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  output:
+      ansi:
+        enabled: always
 server:
   port: 8080
 
